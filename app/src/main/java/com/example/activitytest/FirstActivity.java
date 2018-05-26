@@ -11,7 +11,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-public class FirstActivity extends AppCompatActivity {
+public class FirstActivity extends BaseActivity {
+
+    private static final String TAG = "FirstActivity";
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -50,6 +52,7 @@ public class FirstActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.first_layout);
+        Log.d(TAG, "Task id is " + getTaskId());
         Button button1 = (Button) findViewById(R.id.button_1);
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,9 +90,20 @@ public class FirstActivity extends AppCompatActivity {
                 /**
                  * startActivityForResult 返回数据给上一个活动
                  */
+                /*Intent intent = new Intent(FirstActivity.this, SecondActivity.class);
+                startActivityForResult(intent, 1);*/
+                /**
+                 * Standard 启动模式
+                 */
                 Intent intent = new Intent(FirstActivity.this, SecondActivity.class);
-                startActivityForResult(intent, 1);
+                startActivity(intent);
             }
         });
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.d(TAG, "onRestart");
     }
 }
