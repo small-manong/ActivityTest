@@ -1,7 +1,6 @@
 package com.example.activitytest;
 
 import android.app.Activity;
-import android.bluetooth.BluetoothClass;
 
 import java.util.ArrayList;
 import java.util.List;

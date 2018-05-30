@@ -95,8 +95,12 @@ public class FirstActivity extends BaseActivity {
                 /**
                  * Standard 启动模式
                  */
-                Intent intent = new Intent(FirstActivity.this, SecondActivity.class);
-                startActivity(intent);
+               /* Intent intent = new Intent(FirstActivity.this, SecondActivity.class);
+                startActivity(intent);*/
+                /**
+                 * 启动活动的最佳写法
+                 */
+                SecondActivity.actionStart(FirstActivity.this, "data1", "data2");
             }
         });
     }
